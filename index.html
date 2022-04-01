@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+     $(document).ready(function(){
+        $('#slide_imgbox>li').click(function(){
+                $(this).css({'opacity':'1'}).children('img').attr({})
+                $(this).siblings('li').css({'opacity':'0.2'}).children({})
+                $('#slide_imgbox').animate({'marginLeft':$(this).index()*-100+"%"})
+            })
+     })
+    </script>
+
+    <style>
+    @font-face {
+    font-family: 'Arita-dotum-Medium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Arita-dotum-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+     font-family: 'S-CoreDream-6Bold';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-6Bold.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
+@font-face {
+    font-family: 'Y_Spotlight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/Y_Spotlight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'OTWelcomeBA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/OTWelcomeBA.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+        *{margin: 0; padding: 0; list-style: none;font-family: 'Arita-dotum-Medium';}
+        header{width: 100%; height: 60px; border-bottom: 1px solid #ddd;}
+        #logo{width: 130px; height: 35px; float: left; margin-left: 55px; margin-top: 12px;}
+        #icon_menu{width: 130px; height: 25px;float: right; margin-right: 55px; margin-top: 17px;}
+        #icon_menu>li{float: left ; margin-left: 18px;}
+        #menu{width: 700px; height: 60px; line-height: 60px;  position: relative;left: 0; right: 0; margin: auto; top: 0; text-align: center;}
+        #menu>li{ display: inline-block;margin: 0 5px; color: rgb(104, 104, 104); margin-left: 17px; margin-right: 17px;font-size: 16px;position: relative;cursor: pointer;}
+        #menu>li>.menu_line{width: 0; height: 3px; background-color: #000; position: absolute; left: 0;right: 0; bottom: 0; margin: auto;transition: 0.5s;}
+        #menu>li:hover>.menu_line{width: 100%;}
+        #slide {width: 100%; height: 600px; position: relative;}
+        #slide_imgbox{width: 500%; height: 600px; position: absolute;}
+        #slide_imgbox>li{width: 20%; height: 600px; float: left;position: relative;}
+        #slide_imgbox>li:nth-child(1){background: url(images/slide1.png)center no-repeat;}
+        #slide_imgbox>li:nth-child(2){background: url(images/slide2.jpg)center no-repeat;}
+        #slide_imgbox>li:nth-child(3){background: url(images/slide3.jpg)center no-repeat;}
+        #slide_imgbox>li:nth-child(4){background: url(images/slide4.jpg)center no-repeat;}
+        #slide_imgbox>li:nth-child(5){background: url(images/slide5.jpg)center no-repeat;}
+        .slide_text{ height: 220px;  position: absolute; left: 13%; top: 215px;}
+        .slide_text>h2{font-weight: 100; color: #000000;font-size: 55px;} 
+        .slide_text>h4{font-weight: 100; color: #000000; margin-top: 28px; font-size: 26px;}
+        #slide_btbox{width: 300px; height: 50px;position: absolute; left: 0;right: 0;margin: auto; margin-top: -70px;line-height: 50px; text-align: center; z-index: 999;}
+        #slide_btbox>img{width: 13.5px; height: 13.5px;vertical-align: middle;margin-left: 3px; margin-right: 3px;}
+        #slide_btbox>ul{display: inline-block;vertical-align: middle; margin-left: 1px; margin-right: 1px;}
+        #slide_btbox>ul>li{width: 7.5px; height: 7.5px; border-radius: 10px; background-color: #787779; display: inline-block;vertical-align: middle;margin: 2px; margin-left: 5px;}
+        #slide_btbox>ul>li:nth-child(1){width: 6.8px; height: 6.8px;background-color: transparent; border: 2px solid #000000}
+        #best{width: 100%; height: 900px; position: relative; overflow: hidden;}
+        #best_product{width: 100%; height: 900px; position: absolute; left: 0;top: 0;}
+        #best_product_bg1{width: 100%; height: 570px; opacity: 0.5;}
+        #best_product_bg2{width: 100%; height: 440px;background-color: white;}
+        #best_product_box{width: 1200px; height: 800px;position: absolute;top: 50px;left: 0; right: 0; margin: auto; text-align: center;}
+        #best_product_box>h2{line-height: 100px; font-size: 34px; margin-top: 40px; font-weight: 900;  font-family: 'S-CoreDream-6Bold';letter-spacing :3.3px; }
+        #best_product_box>ul{margin-top: 20px;}
+        #best_product_box>ul>li{width: 326px; height: 606px; margin: 37px; float: left;}
+        .best_product{width: 100%;}
+        .best_product_icon{}
+        #best_product_box>ul>li>h4{color: #738fca; margin-top:23px ; font-size: 18px;font-weight: 100;letter-spacing :1.1px; font-weight: 900;}
+        #best_product_box>ul>li>h3{margin-top: 9px;font-weight: 100;font-size: 17px;font-weight: 10;letter-spacing :0.3px; color: rgb(104, 104, 104);}
+        #best_product_box>ul>li>img{ margin-top: 27px;}
+        #best_product_box>ul>li>p{color: rgb(129, 129, 129);margin-top: 13px; line-height: 1.7;font-size: 15px;}
+        #best_product_box>ul>li>h6{color:rgb(139, 139, 139);margin-top: 13px; font-size: 13px;font-weight: 100;}
+        #best_prevbtn{position: absolute; top: 455px;bottom: 0; left: -16px;}
+        #best_nextbtn{position: absolute; top: 455px;bottom: 0; right:-16px;}
+        #banner{width: 1200px; height: 650px;  margin: auto; margin-top: 150px;}
+        #banner>ul{}
+        #banner>ul>li{width: 314px; height: 640px; margin-left: 66px; margin-right: 20px; margin-top: 5px; float: left;position: relative;}
+        #banner>ul>li>img{width: 100%;}
+        .banner_rotate{width: 300px; height: 40px; line-height: 60px;position: absolute; left: -180px; top: 135px;transform: rotate(-90deg);text-align: right; color: #6a87ca;letter-spacing :0.3px; font-size: 13px;font-weight: 900;}
+        #banner>ul>li>h3{margin-top:10px; color: rgb(105, 103, 103); font-size: 15px;font-weight: 100;letter-spacing :0.5px;}
+        #banner>ul>li>p{ margin-top: 10px; color: #888; font-size: 12px; line-height:1.5;}
+        #banner2{width: 1200px; height: 1600px; margin: auto; margin-top: 80px;position: relative;}
+        #banner2_box1{width: 610px; height: 540px; position: absolute;left: 90px; top: 90px; }
+        #banner2_box1>.banner2_rotate{width: 300px; height: 40px; line-height: 60px;position: absolute; left: -180px; top: 135px;transform: rotate(-90deg);text-align: right; color: #7080da;letter-spacing :0.3px; font-size: 17px;font-weight: 900;}
+        #banner2_box2{width: 370px; height: 725px;position: absolute;right: 20px; top: 130px; }
+        #banner2_box2>.banner2_rotate{width: 300px; height: 40px; line-height: 60px;position: absolute; left: -180px; top: 135px;transform: rotate(-90deg);text-align: right; color: #7080da;letter-spacing :0.3px; font-size: 17px;font-weight: 900;}
+        #banner2_box3{width: 370px; height: 750px;position: absolute;left: 60px;  bottom: 170px; }
+        #banner2_box3>.banner2_rotate{width: 300px; height: 40px; line-height: 60px;position: absolute; left: -180px; top: 135px;transform: rotate(-90deg);text-align: right; color: #7080da;letter-spacing :0.3px; font-size: 17px;font-weight: 900;}
+        #banner2_box4{width: 620px; height: 540px;position: absolute;right: 20px; bottom: 30px; }
+        #banner2_box4>.banner2_rotate{width: 300px; height: 40px; line-height: 60px;position: absolute; left: -180px; top: 135px;transform: rotate(-90deg);text-align: right; color: #7080da;letter-spacing :0.3px; font-size: 17px;font-weight: 900;}
+        #banner2>div>img{width: 100%;}
+        #banner2>div>h3{color: rgb(77, 75, 75); margin-top: 15px;font-weight: 100; font-size: 16.5px;}
+        #banner2>div>p{color: rgb(128, 128, 128);margin-top: 14px;font-weight: 100; font-size: 15px;}
+        #sns{width: 1200px; height: 400px; margin: auto;text-align: center;}
+        #sns>h2{line-height: 65px;font-family: 'OTWelcomeBA';;font-size: 34px; letter-spacing :6px; font-weight: 400;}
+        #sns>h2>span{ font-size: 46px;vertical-align: bottom; line-height: 65px; margin-right: -19px; font-weight: 100;}
+        #sns>h4{color: rgb(89, 89, 89);margin-top: 1.5px; letter-spacing :0.4px; }
+        #sns>ul{ width: 1050px; height: 210px; margin: auto; margin-top: 17px;}
+        #sns>ul>li{width: 200px; height: 200px; margin: 5px;float: left;overflow: hidden;position: relative;}
+       .sns_img{width: 100%;position: absolute; left: 0; top: 0; transition: 0.5s;}
+       #sns>ul>li:hover>.sns_img{top:-10px}
+       .sns_cart{position: absolute;left: 5px; top: 5px;}
+       .sns_hover_box{width: 100%; height: 60px; background-color: white; position:absolute; left: 0; bottom: -60px;transition: 0.4s;line-height: 30px;}
+       #sns>ul>li:hover>.sns_hover_box{bottom: 0;}
+       .sns_hover_box>h5{margin-top: 5px;color: rgb(54, 54, 54);font-weight: 100;}
+       .sns_hover_box>p{width: 180px; height: 30px; margin: auto;margin-top: -4px; white-space: nowrap; text-overflow: ellipsis ; overflow: hidden; font-size: 12px; color: rgb(99, 99, 99);} 
+       .sns_hover_box>p>img{vertical-align: middle; }
+       #sns>button{width: 120px; height: 35px; border: 1px solid rgb(70, 70, 70); background-color: white; margin-top: 30px;transition: 0.5s; font-size: 14.2px; color: rgb(98, 97, 97);}
+       #sns>button:hover{background-color: #4577be; color: white; background-color: #4577be;}
+       footer{width: 100%; height: 250px; margin-top: 100px;}
+       #footer1{width: 100%; height: 50px; border-top: 1px solid rgb(214, 213, 213); border-bottom: 1px solid rgb(214, 213, 213);}
+       #footer1_box{width: 1200px; height: 25px; line-height: 25px; margin: auto;margin-top: 12px;}
+       #footer1_menu1{width: 920px; height: 25px; float:left;margin-left: -36px; margin-top: -10px; }
+       #footer1_menu1>li{color: rgb(109, 107, 107);display: inline-block; margin-left: 40px; margin-top: 10px; font-size: 13px; float:left;}
+       #footer1_menu2{ height: 25px; float: right;}
+       #footer1_menu2>li{ margin-left: 14px;display: inline-block;}
+       #footer2{width: 1200px; height: 200px; margin: auto; }
+       #footer2_left{width: 820px; height: 120px; margin-top: 10px;  float: left; }
+       #footer2_left>ul>li{color: #666;font-size: 15px; margin-top: 11px; display: inline-block; vertical-align: middle; font-size: 13.2px; margin-left:-12px;  margin-right: 20px;border-left: 1px solid rgb(233, 230, 230); padding-left: 14px;}
+       #footer2_left>ul>li:first-child{border: none;}
+       #footer2_left>ul>li:last-child{height: 40px;}
+       #footer2_left>ul>li>img{width: 70px; height: 50px;vertical-align: middle;margin-top: -5px; }
+       #footer2_left>h4{color: rgb(121, 121, 121);font-weight: 700;margin-top: 30px; font-size: 14px; letter-spacing :1.1px;font-size: 13.2px;}
+       #footer2_left>h4>span{font-size: 12.2px; font-family: 'OTWelcomeBA';color: rgb(92, 91, 91);font-weight: 900;letter-spacing :1px; vertical-align: bottom; font-weight: 900;}
+       #footer2_right{ height: 40px; margin-top: 20px; float: right; border: 1px solid black;}
+       #footer2_right>select{width: 260px; height: 40px;}
+       #footer2_right>select>option{}
+    
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="logo">
+            <img src="icons/laneige-logo.svg" alt="">
+        </h1>
+        <ul id="icon_menu">
+            <li><img src="icons/header-icon_1.png" alt=""></li>
+            <li><img src="icons/header-icon_2.png" alt=""></li>
+            <li><img src="icons/header-icon_3.png" alt=""></li>
+        </ul>
+        <ul id="menu">
+            <li>브랜드 <div class="menu_line"></div></li>
+            <li>미츠 아트 <div class="menu_line"></div></li>
+            <li>베스트 & 신상품 <div class="menu_line"></div></li>
+            <li>스킨케어 <div class="menu_line"></div></li>
+            <li>메이크업 <div class="menu_line"></div></li>
+            <li>옴므 <div class="menu_line"></div></li>
+            <li>이벤트 <div class="menu_line"></div></li>
+        </ul>
+    </header>
+    <!--  -->
+<div id="slide">
+    <ul id="slide_imgbox">
+        <li>
+            <div class="slide_text">
+                <h2>ALL NEW 워터뱅크 블루 히알루로닉</h2>
+                <h4>1/2000 사이즈의 초소형 블루 히알루로산이<br>피부 깊은 곳부터. 빈틈없이. 건강한피부로<br>풀 리페어 보습</h4>
+            </div>
+        </li>
+        <li>
+            <div class="slide_text">
+                <h2>래디언-C 어드밴스드 이펙터</h2>
+                <h4>매일 매일 환해지는 피부를 위한 첫단계 스킨케어</h4>
+                <h5>#브라이트닝 부스팅 에센스</h5>
+            </div>
+        </li>
+        <li>
+            <div class="slide_text">
+                <h2>래디언-C 크림</h2>
+                <h4>초강력 톤업부스터의 힘으로 코어부터 맑아지는 비타민 크림</h4>
+                <h5>#톤업부스터 #빛톤피부</h5>
+            </div>
+        </li>
+        <li>
+            <div class="slide_text">
+                <h2>피토베타인 수부지<br>컨트롤 앰플</h2>
+                <h4>피부에 꼭 필요한 보습을 채워주어 유수분밸런스를 맞춰주는 앰플</h4>
+                <h5>#이유치유앰플 #수부지컨트롤</h5>
+            </div>
+        </li>
+        <li>
+            <div class="slide_text">
+                <h2>립 트린트먼트 밤</h2>
+                <h4>진주빛 펄과 고효능 성분이 화사한 불륨업 입술로 연출해주는 데일리 립 밤</h4>
+                <h5>#진주빛립밤 #3단립케어</h5>
+            </div>
+        </li>
+    </ul>
+    </div>
+    <div id="slide_btbox">
+        <img src="icons/KakaoTalk_Photo_2022-01-24-10-03-13 001.png" alt="" id="slide_prev_btn">
+        <img src="icons/KakaoTalk_Photo_2022-01-24-10-03-31.png" alt="" id="slide_prev_btn">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <img src="icons/KakaoTalk_Photo_2022-01-24-10-03-13 002.png" alt="" id="slide_prev_btn">
+    </div>
+</div>
+ <!--  -->
+ <div id="best">
+    <video src="images/bestseller-bg.mp4" id="best_bg" autoplay loop muted></video>
+    <div id="best_product">
+        <div id="best_product_bg1"></div>
+        <div id="best_product_bg2"></div>
+        <div id="best_product_box">
+            <h2>BEST SELLER</h2>
+            <ul>
+                <li>
+                    <img src="images/20200325_final_product_cream-skin_pc.png" alt="" class="best_product">
+                    <h4>CREAM SKIN REFNER</h4>
+                    <h3>크림 스킨</h3>
+                    <img src="icons/KakaoTalk_Photo_2022-01-24-14-16-07.png" alt="" class="best_icon">
+                    <p>스킨인데 뛰어난 보습지속력과, 산뜻한<br> 사용감으로 이만한 스킨은 없는 것<br> 같아요.</p>
+                    <h6>@rabb********</h6>
+                </li>
+                <li>
+                    <img src="images/20201118_final_neo-cushion-matte_best-seller_pc.png" alt="" class="best_product">
+                    <h4>NEO CUSHION</h4>
+                    <h3>네오 쿠션</h3>
+                    <img src="icons/KakaoTalk_Photo_2022-01-24-14-16-07.png" alt="" class="best_icon">
+                    <p>마스크때문에 매트한 쿠션 샀는데 지금까지 썼던 쿠션 중에 제일 마무리감이 좋았어요.</p>
+                    <h6>@euns******</h6>
+                </li>
+                <li>
+                    <img src="images/20201118_final_radian-c-cream_best-seller_pc.png" alt="" class="best_product">
+                    <h4>RADIAN-C CREAM</h4>
+                    <h3>레디언-C 크림</h3>
+                    <img src="icons/KakaoTalk_Photo_2022-01-24-14-16-07.png" alt="" class="best_icon">
+                    <p>벌써 3통째예요! 기미가 고민인 요즘 사용하면<br> 피부가 밝아지고 확실히 잡티가 옅어지네요~</p>
+                    <h6>@enji****</h6>
+                </li>
+            </ul>
+            <img src="icons/KakaoTalk_Photo_2022-01-24-10-03-13 001.png" alt="" id="best_prevbtn">
+            <img src="icons/KakaoTalk_Photo_2022-01-24-10-03-13 002.png" alt="" id="best_nextbtn">
+        </div>
+    </div>
+ </div>
+  <!--  -->
+  <div id="banner">
+      <ul>
+          <li>
+              <img src="images/20211201_feel_the_glow.jpg" alt="">
+              <h3>FEEl the GLOW</h3>
+              <p>내 피부 본연의 건강한 빛, 내 삶의 빛나는 자신감</p>
+              <div class="banner_rotate">BRAND STORY</div>
+          </li>
+          <li>
+            <img src="images/20220105_final_Radian-C-Cream_main_Best-Seller_pc.jpg" alt="">
+            <h3>래디언-C 크림</h3>
+            <p>초강력 톤업부스터의 힘으로 피부 코어부터<br> 맑아지는 비타민 크림</p>
+            <div class="banner_rotate">BEST SELLER</div>
+          </li>
+          <li>
+            <img src="images/20210601_final_main_thumbnail_lifestyle-test.png" alt="">
+            <h3><내가 크리에이터라면?> 참여하기</h3>
+            <p>라이프스타일로 알아보는 크리에이터 유형테스트</p>
+            <div class="banner_rotate">LIFSTYLE TEST</div>
+          </li>
+        </ul>
+     </div>
+      <!--  -->
+     <div id="banner2">
+          <div id="banner2_box1">
+          <img src="images/20210406_final_radian-c-vitamin-spot-ampoule_sub-banner_pc.jpg" alt="">
+          <h3>피토알렉신 수분진정 토너</h3>
+          <p>매일 자극받는 피부를 케어해주는 민감 진정 수분 토너</p>
+          <div class="banner2_rotate">NEW ARRIVALS</div></div>
+          <div id="banner2_box2">
+          <img src="images/20201104_final_flagship-store_banner_pc.jpg" alt="">
+          <h3>명동 쇼룸</h3>
+          <p>편안하게 제품을 체험하고 브랜드를 경험할 수 있는<br> 라네즈 브랜드 공간</p>
+          <div class="banner2_rotate">FLAGSHIP STORE</div></div>
+          <div id="banner2_box3">
+          <img src="images/20201130_final_laneige_main-thumbnail_best-seller.jpg" alt="">
+          <h3>네오 쿠션</h3>
+          <p>함부로 묻지 않게, 네오로 밀착</p>
+          <div class="banner2_rotate">BEST SELLER</div></div>
+          <div id="banner2_box4">
+          <img src="images/20210811_final_NEO-foundation-matte_main_sub_banner_1.jpg" alt="">
+          <h3>네오 파운데이션</h3>
+          <p>얇고 촘촘한 구름결 커버</p>
+          <div class="banner2_rotate">NEW ARRICALS</div></div>
+     </div>
+    <!--  -->
+    <div id="sns">
+        <h2><span>#</span> GLOW LIVE</h2>
+        <h4>SHARE YOUR GLOW MOMENTS WITH LADEIGE! </h4>
+        <ul>
+            <li>
+                <img src="images/ebae46ad937557d6ecea.jpg" alt="" class="sns_img">
+                <img src="icons/KakaoTalk_Photo_2022-01-24-17-11-43.png" alt="" class="sns_cart">
+                <div class="sns_hover_box">
+                     <h5>@miittocador</h5>
+                     <p>buenos días! 🌼 tal como me des</p>
+                </div>
+            </li>
+            <li>
+                <img src="images/985474feef1b18fc7a6d.jpg" alt="" class="sns_img">
+                <img src="icons/KakaoTalk_Photo_2022-01-24-17-11-43.png" alt="" class="sns_cart">
+                <div class="sns_hover_box">
+                     <h5>@miittocador</h5>
+                     <p>buenos días! 🌼 tal como me desc</p>
+                </div>
+            </li>
+            <li>
+                <img src="images/e1b120962bde6142ab1a.jpg" alt="" class="sns_img">
+                <img src="icons/KakaoTalk_Photo_2022-01-24-17-11-43.png" alt="" class="sns_cart">
+                <div class="sns_hover_box">
+                     <h5>@geungbee</h5>
+                     <p>#광고 로 만났지만 써보니 넘 좋아</p>
+                </div>
+            </li>
+            <li>
+                <img src="images/d28e3e52174fbf807ab7.jpg" alt="" class="sns_img">
+                <img src="icons/KakaoTalk_Photo_2022-01-24-17-11-43.png" alt="" class="sns_cart">
+                <div class="sns_hover_box">
+                     <h5>@geungbee</h5>
+                     <p>#광고 로 만났지만 써보니 넘 좋아서</p>
+                </div>
+            </li>
+            <li>
+                <img src="images/5b147357b4bef5284f79.jpg" alt="" class="sns_img">
+                <img src="icons/KakaoTalk_Photo_2022-01-24-17-11-43.png" alt="" class="sns_cart">
+                <div class="sns_hover_box">
+                     <h5>@aerabeautydiary</h5>
+                     <p>after years and years, the laneige</p>
+                </div>
+            </li>
+        </ul>
+        <button>View More</button>
+    </div>
+<!--  -->
+<footer>
+    <div id="footer1">
+         <div id="footer1_box">
+            <ul id="footer1_menu1">
+                <li>회사소개</li>
+                <li>서비스이용약관</li>
+                <li>UGC 이용약관</li>
+                <li>개인정보처리방침</li>
+                <li>영상정보처리방침</li>
+                <li>뷰티포인트</li>
+                <li>사이트맵</li>
+                <li>공지사항</li>
+            </ul>
+            <ul id="footer1_menu2">
+                <li><img src="icons/sns_instagram_renew.png" alt=""></li>
+                <li><img src="icons/sns_facebook_renew.png" alt=""></li>
+                <li><img src="icons/sns_youtube_renew.png" alt=""></li>
+                <li><img src="icons/sns_tiktok_renew.png" alt=""></li>
+            </ul>
+         </div>
+    </div>
+    <div id="footer2">
+         <div id="footer2_left">
+            <ul>
+                <li>고객상담실 (수신자요금부담) 080-023-5454</li>
+                <li>운영시간 : 월-금 09:00 ~ 18:00</li>
+                <li><img src="icons/wa-mark.png" alt=""></li>
+            </ul>
+            <h4><span>AMOREPACIFIC </span> CORPORATION. ALL RIGHTS RESERVED.</h4>
+        </div>
+         <div id="footer2_right">
+            <select name="" id="dooter2_sist">
+            <option value="">한국/한국어</option>
+            <option value="">INTERNATIONAL/ENGLISH</option>
+            <option value="">中国大陆/中文</option>
+            <option value="">SINGAPORE/ENGLISH</option>
+            <option value="">MALAYSIA/ENG√LISH</option>
+            <option value=""> ประเทศไทย/ไทย</option>
+            <option value=""> VIỆT NAM/TIẾNG VIỆT</option>
+            <option value=""> INDONESIA/BAHASA INDONESIA</option>
+            <option value=""> HONGKONG CHINA/ENGLISH</option>
+            <option value="">中國香港/繁體中文</option>
+            <option value="">CANADA/ENGLISH</option>
+            <option value="">UNITED STATES/ENGLISH</option>
+        </select>
+    </div>
+</footer>
+</body>
+</html>
